@@ -1,0 +1,9 @@
+
+{
+    "build": {
+      "env": {
+        "DATABASE_URL": "postgresql://postgres:9666858858Tt@dssecurity.ct6ckk4o89z1.us-east-1.rds.amazonaws.com:5432/ds_security?schema=public"
+      }
+    }
+  }
+  
