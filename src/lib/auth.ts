@@ -3,14 +3,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { db } from "./db";
 import { compare } from "bcrypt";
-
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
-  secret: process.env.NEXTAUTH_URL,
+  secret: process.env.NEXTAUTH_SECRET, // Ensure this is set in your environment variables
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
   },
   pages: {
     signIn: '/sign-in',
@@ -18,47 +17,47 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email", placeholder: "jsmith@gmail.com" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
         if (!credentials?.email || !credentials.password) {
           return null;
         }
-        const exisitinUser = await db.user.findUnique({
-          where: { email: credentials?.email }
+        const existingUser = await db.user.findUnique({
+          where: { email: credentials?.email },
         });
 
-        if (!exisitinUser) {
+        if (!existingUser) {
           return null;
         }
-        if (exisitinUser.password) {
-          const passwordMatch = await compare(credentials.password, exisitinUser.password);
+        if (existingUser.password) {
+          const passwordMatch = await compare(credentials.password, existingUser.password);
           if (!passwordMatch) {
             return null;
           }
         }
 
         return {
-          id: `${exisitinUser.id}`,
-          username: exisitinUser.username,
-          email: exisitinUser.email
-        }
-      }
-    })
+          id: `${existingUser.id}`,
+          username: existingUser.username,
+          email: existingUser.email,
+        };
+      },
+    }),
   ],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
         return {
           ...token,
-          id: user.id,  // Add userId to the token
-          username: user.username
+          id: user.id, // Add userId to the token
+          username: user.username,
         };
       }
       return token;
@@ -68,10 +67,10 @@ export const authOptions: NextAuthOptions = {
         ...session,
         user: {
           ...session.user,
-          id: token.id,  // Add userId to the session
-          username: token.username
-        }
+          id: token.id, // Add userId to the session
+          username: token.username,
+        },
       };
     },
-  }
+  },
 };
