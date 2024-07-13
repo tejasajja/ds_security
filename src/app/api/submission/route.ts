@@ -113,18 +113,22 @@ export async function GET() {
     // Calculate scores for each user
     const leaderboard = users.map(user => {
       let totalScore = 0;
+      let count= 0;
 
       user.submissions.forEach(submission => {
         if (submission.status === SubmissionStatus.COMPLETE) {
           totalScore += 100;
+          count+=1;
         } else if (submission.status === SubmissionStatus.INCOMPLETE) {
           totalScore += 50;
+          count+=0.5;
         }
       });
 
       return {
         userId: user.id,
         username: user.username || user.name,
+        tasksattempted: count,
         totalScore,
       };
     });

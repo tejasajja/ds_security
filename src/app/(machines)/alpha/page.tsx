@@ -130,30 +130,30 @@ export default function Alpha() {
     <section>
       <div className="flex flex-col justify-center items-center">
         <div className="max-w-7xl mx-auto text-center my-32">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-7xl">Alpha</h1>
-          <p className="leading-7 [&:not(:first-child)]:mt-16 text-2xl">
+          <h2 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-6xl">Alpha</h2>
+          <p className="leading-7 [&:not(:first-child)]:mt-16 text-xl">
             Dive into the digital depths with this specially crafted vulnerable machine. Explore a landscape rich with complex vulnerabilities designed to test your hacking abilities to the fullest. Your mission is to maneuver through layered security measures, exploit the system, and extract the hidden flag. Sharpen your penetration skills and ethical hacking knowledge in this immersive and challenging environment.
           </p>
         </div>
 
         <div className="md:grid md:grid-cols-12 md:gap-6 items-center my-32">
           {/* Image */}
-          <ImageSection src="https://ds-security-web.s3.amazonaws.com/ui/media/images/alpha.jpg" alt="Alpha Image" width={540} height={405} />
+          <ImageSection src="https://ds-security-web.s3.amazonaws.com/ui/media/images/alpha.jpg" alt="Alpha Image" width={450} height={305} />
           <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6" data-aos="fade-left">
             <div className="md:pl-4 lg:pl-12 xl:pl-16">
               <Link href={session?.user ? "https://drive.proton.me/urls/KHBQ74705M#zSkENqj3Pbqr" :"/signin"} target={session?.user ? "_blank" : ""}>
                   {/* <FileDownloadRoundedIcon /> */}
-                  <div className="font-e text-4xl font-bold text-red-600 mb-2">Mind Bender</div>
-                  <h3 className="h3 mb-3">Click to download
+                  <div className="font-e text-3xl font-bold text-red-600 mb-2">Mind Bender</div>
+                  <h3 className="h3 text-2xl mb-3">Click to download
                   <FaDownload className=""/>
               </h3>
                 </Link>
-              <p className="leading-7 text-2xl mr-56 mb-3 [&:not(:first-child)]:mt-6">Download the OVA file, import it into your virtual machine environment, start the machine, and run</p>
-              <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xl font-semibold">`nmap -sn (your-ip-subnet)`</code>
+              <p className="leading-7 text-xl mr-56 mb-3 [&:not(:first-child)]:mt-6">Download the OVA file, import it into your virtual machine environment, start the machine, and run</p>
+              <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-dl font-semibold">`nmap -sn (your-ip-subnet)`</code>
               {session?.user && (
-                <p className="text-2xl font-bold text-green-400 my-4">Password: dssecurity</p>
+                <p className="text-xl font-bold text-green-400 my-4">Password: dssecurity</p>
               )}
-              <ul className="text-lg text-gray-200 -mb-2">
+              <ul className="text-l text-gray-200 -mb-2">
                 <ListItem>Linux</ListItem>
                 <ListItem href="alpha/walkthrough">Walkthrough (coming soon)</ListItem>
                 <ListItem href="beerus/vulnexp">Vulnerabilities explained (coming soon)</ListItem>
