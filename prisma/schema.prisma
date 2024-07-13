@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String  @map("user_id")
+  type               String
+  provider           String
+  providerAccountId  String  @map("provider_account_id")
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  username      String?   @unique
+  password      String?  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  submissions   Submission[]
+  leaderboard   Leaderboard?
+
+
+
+  @@map("users")
+}
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+model TaskKeys {
+  id        String   @id @default(cuid())
+  taskId    String   @unique
+  key1      String?
+  key2      String?
+  createdAt DateTime @default(now())
+  submissions Submission[]
+
+  @@map("taskkeys")
+}
+
+enum SubmissionStatus {
+  NOT_ATTEMPTED
+  INCOMPLETE
+  COMPLETE
+}
+
+model Submission {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  taskId    String   @map("task_id")
+  key1      Boolean  @default(false)
+  key2      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  status    SubmissionStatus @default(NOT_ATTEMPTED)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task TaskKeys @relation(fields: [taskId], references: [taskId], onDelete: Cascade)
+
+  @@unique([userId, taskId])
+  @@map("submissions")
+}
+
+model Leaderboard {
+  id        String   @id @default(cuid())
+  userId    String   @unique @map("user_id")
+  totalScore Int     @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("leaderboard")
+}

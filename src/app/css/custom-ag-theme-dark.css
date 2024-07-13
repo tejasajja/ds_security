@@ -1,0 +1,49 @@
+.ag-theme-alpine {
+    --ag-background-color: #1e1e1e;
+    --ag-header-background-color: #2d2d2d;
+    --ag-odd-row-background-color: #1e1e1e;
+    --ag-even-row-background-color: #1e1e1e;
+    --ag-font-family: 'Arial, sans-serif';
+    --ag-border-color: #555;
+    --ag-header-foreground-color: #eee;
+    --ag-foreground-color: #ddd;
+    --ag-row-hover-color: #444;
+
+    --ag-cell-horizontal-border: 1px solid #555;
+    --ag-header-cell-horizontal-border: 1px solid #555;
+
+    --ag-checkbox-background-color: #444;
+    --ag-checkbox-border-color: #555;
+    --ag-checkbox-checked-color: #4a90e2;
+
+    --ag-input-focus-border-color: #4a90e2;
+
+    --ag-status-bar-background-color: #2d2d2d;
+    --ag-status-bar-foreground-color: #eee;
+    --ag-status-bar-border-color: #555;
+
+    --ag-range-selection-background-color: rgba(74, 144, 226, 0.2);
+    --ag-range-selection-border-color: #4a90e2;
+
+    /* Additional styles */
+    --ag-header-cell-horizontal-padding: 10px;
+    --ag-header-cell-vertical-padding: 5px;
+    --ag-header-cell-height: 40px;
+    --ag-row-height: 35px;
+    --ag-cell-horizontal-padding: 10px;
+    --ag-cell-vertical-padding: 5px;
+}
+
+/* Ensure proper checkbox styling */
+.ag-theme-custom-dark .ag-checkbox-input-wrapper {
+    background-color: var(--ag-checkbox-background-color);
+    border: 1px solid var(--ag-checkbox-border-color);
+}
+
+.ag-theme-custom-dark .ag-checkbox-input-wrapper input:checked + .ag-icon {
+    color: var(--ag-checkbox-checked-color);
+}
+
+.ag-theme-custom-dark .ag-checkbox-input-wrapper input:focus + .ag-icon {
+    border-color: var(--ag-input-focus-border-color);
+}
