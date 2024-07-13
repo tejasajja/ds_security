@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import Header from '@/components/ui/header'
 import Banner from '@/components/banner'
 import Head from 'next/head';
+import {IMAGES} from "@/app/constants/images";
 // import { AuthProvider } from '@/app/authContext';
 import { Inter as FontSans } from "next/font/google"
 import { ThemeProvider } from '@/components/theme-provider'
@@ -40,9 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <html lang="en" className="custom-class" style={{ backgroundColor: 'white' }} />
-      </Head>
+
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased dark:bg-gradient-to-l  to-black",

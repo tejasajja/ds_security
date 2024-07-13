@@ -20,8 +20,10 @@ const Header = async () => {
       <Link href="/" className="block" aria-label="Cruip">
           <img src={IMAGES.logoURL} alt="logo" className="w-20 h-20 mb-4"/>
           </Link>
-          
-          {session?.user ? (<User/> 
+           
+          {session?.user ? (<div className=" flex mx-8"><User/>  <Button asChild className=" bg-indigo-700 rounded-xl mt-4">
+            <Link href="/leaderboard">Leaderboard</Link>
+          </Button></div>
         ):(<div>
             <Button asChild className=" bg-indigo-700 rounded-xl">
             <Link href="/sign-in">Login</Link>
