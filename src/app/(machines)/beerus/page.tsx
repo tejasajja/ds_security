@@ -163,7 +163,7 @@ export default function Alpha() {
           </div>
         </div>
 
-        <Card className="flex flex-col md:flex-row items-center h-rounded-3xl bg-black border border-slate-700 p-6 my-20 w-1/3">
+        {session?.user && (<Card className="flex flex-col md:flex-row items-center h-rounded-3xl bg-black border border-slate-700 p-6 my-20 w-1/3">
           <CardContent className="w-full">
             <div className="text-left m-4 w-full">
               <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-white">
@@ -183,7 +183,7 @@ export default function Alpha() {
               </form>
             </div>
           </CardContent>
-        </Card>
+        </Card>)}
       </div>
     </section>
   );
