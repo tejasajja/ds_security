@@ -20,7 +20,16 @@ export default function Features() {
             <div className="relative flex flex-col items-center" data-aos="fade-up"
                  data-aos-anchor="[data-aos-id-blocks]">
               <Link href="/alpha">
-                <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/alpha.jpg" alt="Your Image" className="w-64 h-64 mb-4"/>
+              <div className="w-64 h-64 mb-4 relative">
+        <Image
+          src="https://ds-security-web.s3.amazonaws.com/ui/media/images/alpha.jpg"
+          alt="Your Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
+                {/* <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/alpha.jpg" alt="Your Image" className="w-64 h-64 mb-4"/> */}
               </Link>
               <Link href="/alpha">
                 <h4 className="h4 mb-2 hover:text-purple-600">
@@ -36,7 +45,15 @@ export default function Features() {
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="100"
                  data-aos-anchor="[data-aos-id-blocks]">
               <Link href="/head2">
-                <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/head2.jpg" alt="Your Image" className="w-64 h-64 mb-4"/>
+              <div className="w-64 h-64 mb-4 relative">
+        <Image
+          src="https://ds-security-web.s3.amazonaws.com/ui/media/images/head2.jpg"
+          alt="Your Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
               </Link>
               <Link href="/head2">
                 <h4 className="h4 mb-2 hover:text-purple-600">
@@ -52,7 +69,15 @@ export default function Features() {
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="200"
                  data-aos-anchor="[data-aos-id-blocks]">
               <Link href="/bugatti">
-                <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/bugatti.jpg" alt="Your Image" className="w-64 h-64 mb-4"/>
+              <div className="w-64 h-64 mb-4 relative">
+                <Image
+          src="https://ds-security-web.s3.amazonaws.com/ui/media/images/bugatti.jpg"
+          alt="Your Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
               </Link>
               <Link href="/bugatti">
                 <h4 className="h4 mb-2 hover:text-purple-600">
@@ -68,7 +93,15 @@ export default function Features() {
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="300"
                  data-aos-anchor="[data-aos-id-blocks]">
               <Link href="/skyline">
-                <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/skyline.jpg" alt="Your Image" className="w-64 h-64 mb-4"/>
+              <div className="w-64 h-64 mb-4 relative">
+                <Image
+          src="https://ds-security-web.s3.amazonaws.com/ui/media/images/skyline.jpg"
+          alt="Your Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
               </Link>
               <Link href="/skyline">
                 <h4 className="h4 mb-2 hover:text-purple-600">
@@ -84,7 +117,16 @@ export default function Features() {
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="400"
                  data-aos-anchor="[data-aos-id-blocks]">
               <Link href="/beerus">
-                <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/beerus.png" alt="Your Image" className="w-64 h-64 mb-4"/>
+
+              <div className="w-64 h-64 mb-4 relative">
+                <Image
+          src="https://ds-security-web.s3.amazonaws.com/ui/media/images/beerus.png"
+          alt="Your Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
               </Link>
               <Link href="/beerus">
                 <h4 className="h4 mb-2 hover:text-purple-600">
@@ -100,7 +142,16 @@ export default function Features() {
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="500"
                  data-aos-anchor="[data-aos-id-blocks]">
               <Link href="/koenigsegg">
-                <Image src="https://ds-security-web.s3.amazonaws.com/ui/media/images/koenigsegg.jpg" alt="Your Image" className="w-64 h-64 mb-4"/>
+               
+              <div className="w-64 h-64 mb-4 relative">
+                <Image
+          src="https://ds-security-web.s3.amazonaws.com/ui/media/images/koenigsegg.jpg"
+          alt="Your Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
+      </div>
               </Link>
               <Link href="/koenigsegg">
                 <h4 className="h4 mb-2 hover:text-purple-600">

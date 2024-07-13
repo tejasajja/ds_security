@@ -1,7 +1,8 @@
+// /lib/auth.ts
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { db } from "./db";
+import { db } from "./db"; // Adjust the import path as needed
 import { compare } from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -12,7 +13,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   pages: {
-    signIn: '/sign-in',
+    signIn: '/sign-in',  // Custom sign-in page
   },
   providers: [
     GoogleProvider({
@@ -72,5 +73,13 @@ export const authOptions: NextAuthOptions = {
         },
       };
     },
+    async redirect({ url, baseUrl }) {
+      // Custom redirect logic
+      if (url.startsWith(baseUrl)) {
+        return url;
+      }
+      return baseUrl;
+    },
   },
+  debug: true, // Enable debugging
 };
